@@ -7,7 +7,8 @@
         "Microsoft.AspNet.Server.IIS": "1.0.0-beta5",
         "Microsoft.AspNet.Server.WebListener": "1.0.0-beta5",
         "Microsoft.AspNet.StaticFiles": "1.0.0-beta5",
-        "Experiments.DomainServices": "1.0.0-*"
+        "Experiments.DomainServices": "1.0.0-*",
+        "RabbitMQ.Client": "3.5.4"
     },
 
     "commands": {

@@ -8,6 +8,7 @@ using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Routing;
 using Microsoft.Framework.DependencyInjection;
 using Experiments.DomainServices;
+using RabbitMQ.Client;
 
 namespace TripManagementMicroservice
 {
@@ -15,6 +16,7 @@ namespace TripManagementMicroservice
     {
         public Startup(IHostingEnvironment env)
         {
+            
         }
 
         // This method gets called by a runtime.
@@ -27,6 +29,7 @@ namespace TripManagementMicroservice
             // services.AddWebApiConventions();
 
             services.AddSingleton<ITripsDomainService, TripsDomainService>();
+            //services.AddSingleton<IConnectionFactory, ConnectionFactory>();
         }
 
         // Configure is called after ConfigureServices is called.

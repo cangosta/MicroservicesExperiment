@@ -26,5 +26,15 @@ namespace TripManagementMicroservice.Controllers
         {
             return this.tripsDomainService.GetTrips();
         }
+
+        // POST: api/trips
+        [HttpPost]
+        public Trip Post(Trip newTrip)
+        {
+            // TODO check user existence
+            // TODO get driver
+
+            return this.tripsDomainService.CreateTrip(newTrip.Destination, newTrip.UserId);
+        }
     }
 }
