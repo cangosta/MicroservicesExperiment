@@ -9,6 +9,7 @@ using Microsoft.AspNet.Routing;
 using Microsoft.Framework.DependencyInjection;
 using Experiments.DomainServices;
 using RabbitMQ.Client;
+using TripManagementMicroservice.Publishers;
 
 namespace TripManagementMicroservice
 {
@@ -29,7 +30,8 @@ namespace TripManagementMicroservice
             // services.AddWebApiConventions();
 
             services.AddSingleton<ITripsDomainService, TripsDomainService>();
-            //services.AddSingleton<IConnectionFactory, ConnectionFactory>();
+            services.AddSingleton<ITripPublisher, TripPublisher>();
+            services.AddSingleton<IConnectionFactory, ConnectionFactory>();
         }
 
         // Configure is called after ConfigureServices is called.
