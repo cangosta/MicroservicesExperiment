@@ -7,6 +7,7 @@ namespace Experiments.DomainServices
 {
     public interface IUsersDomainService 
     {
+        IEnumerable<User> GetUsers();
         User GetUserById(Guid id);
     }
 }

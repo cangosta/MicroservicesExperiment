@@ -20,6 +20,13 @@ namespace FirstApplication.Controllers
             this.usersDomainService = usersDomainService;
         }
 
+        // GET api/users
+        [HttpGet("")]
+        public IEnumerable<User> Get()
+        {
+            return this.usersDomainService.GetUsers();
+        }
+
         // GET api/users/5
         [HttpGet("{id}")]
         public User Get(Guid id)

@@ -39,7 +39,7 @@ namespace TripManagementMicroservice.Controllers
 
         // POST: api/trips
         [HttpPost]
-        public Trip Post(Trip newTrip)
+        public Trip Post([FromBody]Trip newTrip)
         {
             // check user existence
             User passenger = null;
@@ -73,7 +73,7 @@ namespace TripManagementMicroservice.Controllers
             // TODO move URI to a configuration file
             var userManagementClient = new RestClient("http://localhost:5000");
 
-            var request = new RestRequest("users/{id}", Method.GET);
+            var request = new RestRequest("api/users/{id}", Method.GET);
             request.AddUrlSegment("id", id.ToString());
 
             var response = userManagementClient.Execute<User>(request);
