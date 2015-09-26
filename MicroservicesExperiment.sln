@@ -18,6 +18,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TripManagementMicroservice"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DriverManagementMicroservice", "src\DriverManagementMicroservice\DriverManagementMicroservice.xproj", "{F158B5AF-96FF-4C98-B828-7AFE7C0C8F99}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NotificationsMicroservice", "src\NotificationsMicroservice\NotificationsMicroservice.xproj", "{1D8AD7D5-2B48-4BE0-9BBA-23818C818495}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{F158B5AF-96FF-4C98-B828-7AFE7C0C8F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F158B5AF-96FF-4C98-B828-7AFE7C0C8F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F158B5AF-96FF-4C98-B828-7AFE7C0C8F99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D8AD7D5-2B48-4BE0-9BBA-23818C818495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D8AD7D5-2B48-4BE0-9BBA-23818C818495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D8AD7D5-2B48-4BE0-9BBA-23818C818495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D8AD7D5-2B48-4BE0-9BBA-23818C818495}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +55,6 @@ Global
 		{1E5CAD5C-96FF-4C91-81D6-A6B78CD26C91} = {84A76B86-76DC-4A47-BFE7-41304C609BA7}
 		{5FE0D1D2-82C7-4637-9F07-E72E95060CCD} = {84A76B86-76DC-4A47-BFE7-41304C609BA7}
 		{F158B5AF-96FF-4C98-B828-7AFE7C0C8F99} = {84A76B86-76DC-4A47-BFE7-41304C609BA7}
+		{1D8AD7D5-2B48-4BE0-9BBA-23818C818495} = {84A76B86-76DC-4A47-BFE7-41304C609BA7}
 	EndGlobalSection
 EndGlobal

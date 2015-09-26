@@ -7,10 +7,12 @@ using Microsoft.AspNet.Http;
 using Microsoft.Framework.DependencyInjection;
 using Experiments.DomainServices;
 
+
 namespace DriverManagementMicroservice
 {
-    public class Startup
+    public partial class Startup
     {
+
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
@@ -20,6 +22,7 @@ namespace DriverManagementMicroservice
 
         public void Configure(IApplicationBuilder app)
         {
+            StartEventListeners(app);
             app.UseMvc();
         }
     }

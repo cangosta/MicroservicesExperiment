@@ -8,6 +8,6 @@ namespace Experiments.DomainServices
     public interface ITripsDomainService
     {
         IEnumerable<Trip> GetTrips();
-        Trip CreateTrip(string destination, User userId);
+        Trip CreateTrip(string origin, string destination, User userId);
     }
 }

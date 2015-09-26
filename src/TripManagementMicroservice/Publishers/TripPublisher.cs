@@ -15,24 +15,29 @@ namespace TripManagementMicroservice.Publishers
 
         #region properties
 
-        protected readonly IConnectionFactory exchangeConnectionFactory = null;
-        protected readonly IConnection exchangeConnection = null;
-        protected readonly IModel exchangeChannel = null;
+        protected readonly IConnectionFactory connectionFactory = null;
+        protected readonly IConnection connection = null;
+        protected readonly IModel channel = null;
 
         #endregion
         
         #region constructor
         
-        public TripPublisher(IConnectionFactory exchangeConnectionFactory)
+        public TripPublisher(IConnectionFactory connectionFactory)
         {
-            if (exchangeConnectionFactory == null) throw new ArgumentNullException("exchangeConnectionFactory");
-            this.exchangeConnectionFactory = exchangeConnectionFactory;
+            if (connectionFactory == null) throw new ArgumentNullException("connectionFactory");
+            this.connectionFactory = connectionFactory;
 
-            this.exchangeConnection = this.exchangeConnectionFactory.CreateConnection();
-            this.exchangeChannel = this.exchangeConnection.CreateModel();
+            this.connection = this.connectionFactory.CreateConnection();
+            this.channel = this.connection.CreateModel();
 
-            // creates the fanout exchange
-            this.exchangeChannel.ExchangeDeclare("trips", "fanout");
+            // creates a work queue
+            channel.QueueDeclare(
+                queue: "unhandled_trips_queue",
+                durable: true,
+                exclusive: false,
+                autoDelete: false,
+                arguments: null);
         }
 
         #endregion
@@ -43,7 +48,14 @@ namespace TripManagementMicroservice.Publishers
         {
             var jsonTrip = Newtonsoft.Json.JsonConvert.SerializeObject(newTrip);
             var message = Encoding.UTF8.GetBytes(jsonTrip);
-            this.exchangeChannel.BasicPublish("trips", "", null, message);
+
+            var properties = this.channel.CreateBasicProperties();
+
+            this.channel.BasicPublish(
+                exchange:  "",
+                routingKey:  "unhandled_trips_queue", 
+                basicProperties: properties, 
+                body: message);
         }
 
         #endregion

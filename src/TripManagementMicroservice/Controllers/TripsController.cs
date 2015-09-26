@@ -50,7 +50,7 @@ namespace TripManagementMicroservice.Controllers
             if (response == System.Net.HttpStatusCode.OK && passenger.IsActive)
             {
                 
-                var trip = this.tripsDomainService.CreateTrip(newTrip.Destination, passenger);
+                var trip = this.tripsDomainService.CreateTrip(newTrip.Origin, newTrip.Destination, passenger);
 
                 // publish the creation of the trip
                 this.tripPublisher.notifyNewTrip(trip);

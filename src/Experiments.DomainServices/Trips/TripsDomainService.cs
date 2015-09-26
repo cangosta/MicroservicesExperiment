@@ -9,10 +9,11 @@ namespace Experiments.DomainServices
     {
         private static List<Trip> trips = new List<Trip>();
 
-        public Trip CreateTrip(string destination, User user)
+        public Trip CreateTrip(string origin, string destination, User user)
         {
             var newTrip = new Trip() {
                 Id = Guid.NewGuid(),
+                Origin = origin,
                 Destination = destination,
                 UserId = user.Id,
                 Username = user.Name,
