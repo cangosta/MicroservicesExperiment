@@ -1,6 +1,7 @@
 ﻿using Experiments.DomainServices;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,8 @@ namespace DriverManagementMicroservice.Subscribers
 
         #region constructor
 
-        public TripsSubscriber(IDriversDomainService driversDomainService)
+        public TripsSubscriber(
+            IDriversDomainService driversDomainService)
         {
             this.driversDomainService = driversDomainService;
 
@@ -75,9 +77,25 @@ namespace DriverManagementMicroservice.Subscribers
             // select driver for trip
             var driver = this.driversDomainService.GetNextDriver();
 
-            // TODO notify selected driver
+            // notify selected driver
+            notify(driver, newTrip);
 
             channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+        }
+
+        private void notify(Driver driver, Trip trip)
+        {
+            var notification = new Notification() {
+                Data = trip,
+                Event = string.Format("new_trip_{0}", driver.Id),
+                GroupName = "drivers"
+            };
+
+            var notificationsClient = new RestClient("http://localhost:5003");
+            var request = new RestRequest("api/notifications", Method.POST);
+            request.AddJsonBody(notification);
+
+            notificationsClient.Execute(request);
         }
 
         #endregion

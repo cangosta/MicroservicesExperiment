@@ -9,7 +9,7 @@ using Microsoft.AspNet.Routing;
 using Microsoft.Framework.DependencyInjection;
 using Experiments.DomainServices;
 
-namespace FirstApplication
+namespace UserManagementMicroservice
 {
     public class Startup
     {

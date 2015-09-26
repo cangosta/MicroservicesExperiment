@@ -3,9 +3,11 @@
   "version": "1.0.0-*",
 
   "dependencies": {
+    "Experiments.DomainServices": "1.0.0-*",
+    "Microsoft.AspNet.Mvc": "6.0.0-beta5",
     "Microsoft.AspNet.Server.IIS": "1.0.0-beta5",
     "Microsoft.AspNet.Server.WebListener": "1.0.0-beta5",
-    "Microsoft.AspNet.SignalR":  "2.2.0"
+    "Microsoft.AspNet.SignalR": "2.2.0"
   },
 
   "commands": {
@@ -13,8 +15,7 @@
   },
 
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": { }
+    "dnx451": { }
   },
 
   "publishExclude": [
