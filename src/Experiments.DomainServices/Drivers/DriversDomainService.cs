@@ -15,7 +15,7 @@ namespace Experiments.DomainServices
             nextDriver = 0;
             drivers = new List<Driver>();
             drivers.Add(new Driver() {
-                Id = Guid.NewGuid(),
+                Id = Guid.Parse("6b89b8be-f5b9-476a-ae48-9fbda8606652"),
                 Name = "Luiz Alberto de Castro Santos"
             });
         }

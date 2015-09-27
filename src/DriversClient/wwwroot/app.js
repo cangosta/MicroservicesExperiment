@@ -1,5 +1,7 @@
 ﻿$(document).ready(function() {
 
+  var driverId = "6b89b8be-f5b9-476a-ae48-9fbda8606652"
+
   // create drivers' hub connection
   var connection = $.hubConnection();
 
@@ -10,7 +12,7 @@
   var notificationsHubProxy = connection.createHubProxy('notificationsHub');
 
   // on new trip
-  notificationsHubProxy.on("newTrip_" + , function(trip) {
+  notificationsHubProxy.on("newTrip_" + driverId, function(trip) {
     console.log(trip.Destination);
 
     $("ul#last-call").append(
