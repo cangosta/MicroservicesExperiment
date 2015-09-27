@@ -87,7 +87,7 @@ namespace DriverManagementMicroservice.Subscribers
         {
             var notification = new Notification() {
                 Data = trip,
-                Event = string.Format("new_trip_{0}", driver.Id),
+                Event = string.Format("newTrip_{0}", driver.Id),
                 GroupName = "drivers"
             };
 
